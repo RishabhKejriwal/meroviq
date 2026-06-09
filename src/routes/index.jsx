@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BarChart3, Code2, GraduationCap, LayoutDashboard, Megaphone, Sparkles, Shield, Clock, HeartHandshake, Users, FileSignature, SpellCheck, FileCog, Calculator, Leaf, Mail, Phone, Linkedin, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BarChart3, Code2, GraduationCap, LayoutDashboard, Megaphone, Sparkles, Shield, Clock, HeartHandshake, Users, FileSignature, FileCog, Calculator, Leaf, Mail, Linkedin, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, EyebrowHeading } from "@/components/site/Section";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -34,7 +34,6 @@ const WHY = [
 ];
 const TOOLS = [
   { to: "/tools/digital-signature", title: "Digital Signature", desc: "Sign documents online securely in seconds.", icon: FileSignature },
-  { to: "/tools/grammar-corrector", title: "Grammar Corrector", desc: "Polish your writing with AI-powered checks.", icon: SpellCheck },
   { to: "/tools/file-converter", title: "File Converter", desc: "Convert between formats with one click.", icon: FileCog },
   { to: "/tools/qa-estimator", title: "QA Effort Estimator", desc: "Plan testing effort with smart heuristics.", icon: Calculator }
 ];
@@ -68,7 +67,7 @@ function HomePage() {
               </Button>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-muted">
-              {["No credit card", "Cancel anytime", "Setup in minutes"].map((t) => <span key={t} className="inline-flex items-center gap-2">
+              {["Cancel anytime", "Setup in minutes"].map((t) => <span key={t} className="inline-flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-accent2" /> {t}
                 </span>)}
             </div>
@@ -138,7 +137,7 @@ function HomePage() {
       <Section className="relative bg-circuit">
         <div aria-hidden className="absolute inset-0 bg-gradient-radial opacity-40" />
         <EyebrowHeading eyebrow="Free tools" title="Free Tools To Boost Productivity" subtitle="Lightweight utilities, free forever. Built to save your team hours every week." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {TOOLS.map((t, index) => {
             const [ref, isVisible] = useScrollReveal();
             const delayClass = index === 0 ? '' : index === 1 ? 'delay-100' : index === 2 ? 'delay-200' : 'delay-300';
@@ -203,6 +202,7 @@ function HomePage() {
             <p className="mt-4 text-lg text-ink-muted leading-relaxed">
               Meroviq Technologies was founded to bridge the gap between enterprise-grade software and the realities of small business budgets. We build accessible, dependable products and train the next generation of IT professionals along the way.
             </p>
+            {/* Metrics hidden temporarily
             <div className="mt-8 grid grid-cols-3 gap-6">
               {[
     { n: "150+", l: "Projects shipped" },
@@ -213,6 +213,7 @@ function HomePage() {
                   <div className="mt-1 text-sm text-ink-muted">{s.l}</div>
                 </div>)}
             </div>
+            */}
           </div>
           <div className="grid gap-4">
             {[
@@ -240,15 +241,11 @@ function HomePage() {
     subtitle="Tell us about your project, your team or the problem you're trying to solve. We respond within one business day."
   />
             <div className="space-y-3">
-              <a href="mailto:hello@meroviq.com" className="flex items-center gap-3 text-ink hover:text-brand">
+              <a href="mailto:hello@meroviq.in" className="flex items-center gap-3 text-ink hover:text-brand">
                 <span className="h-10 w-10 rounded-lg bg-brand-soft text-brand flex items-center justify-center"><Mail className="h-5 w-5" /></span>
-                hello@meroviq.com
+                hello@meroviq.in
               </a>
-              <a href="tel:+910000000000" className="flex items-center gap-3 text-ink hover:text-brand">
-                <span className="h-10 w-10 rounded-lg bg-brand-soft text-brand flex items-center justify-center"><Phone className="h-5 w-5" /></span>
-                +91 00000 00000
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-ink hover:text-brand">
+              <a href="https://www.linkedin.com/company/meroviq-technologies" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-ink hover:text-brand">
                 <span className="h-10 w-10 rounded-lg bg-brand-soft text-brand flex items-center justify-center"><Linkedin className="h-5 w-5" /></span>
                 LinkedIn
               </a>
@@ -260,68 +257,71 @@ function HomePage() {
     </>;
 }
 function HeroVisual() {
+  const orbit = [
+    { icon: Code2, label: "Development", tone: "brand" },
+    { icon: LayoutDashboard, label: "CRM", tone: "accent2" },
+    { icon: Megaphone, label: "Marketing", tone: "brand" },
+    { icon: GraduationCap, label: "Internships", tone: "accent2" },
+  ];
   return <div className="relative h-[480px] hidden md:block animate-fade-in">
-      {
-    /* Main dashboard card */
-  }
       <div className="absolute inset-0 rounded-3xl gradient-brand p-1 shadow-glow">
-        <div className="h-full w-full rounded-[22px] bg-white p-6 flex flex-col">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
-              <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
-              <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
-            </div>
-            <span className="text-xs font-medium text-ink-muted">Meroviq 360</span>
+        <div className="relative h-full w-full rounded-[22px] bg-white overflow-hidden">
+          {/* Soft background glows */}
+          <div aria-hidden className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-brand opacity-10 blur-3xl" />
+          <div aria-hidden className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-accent2 opacity-10 blur-3xl" />
+
+          {/* Orbit rings */}
+          <div aria-hidden className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[340px] w-[340px] rounded-full border border-hairline" />
+          <div aria-hidden className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[230px] w-[230px] rounded-full border border-hairline" />
+
+          {/* Center brand mark */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-24 w-24 rounded-2xl gradient-brand text-white shadow-glow flex flex-col items-center justify-center">
+            <Sparkles className="h-7 w-7" />
+            <span className="mt-1 text-[11px] font-semibold tracking-wide">MEROVIQ</span>
           </div>
-          <div className="mt-5 grid grid-cols-3 gap-3">
-            {[
-    { l: "Leads", v: "1,248", c: "text-brand" },
-    { l: "Revenue", v: "$84k", c: "text-accent2" },
-    { l: "Tasks", v: "92%", c: "text-brand" }
-  ].map((s) => <div key={s.l} className="rounded-xl bg-surface p-3">
-                <div className="text-[10px] uppercase tracking-wider text-ink-muted">{s.l}</div>
-                <div className={`mt-1 text-lg font-bold ${s.c}`}>{s.v}</div>
-              </div>)}
-          </div>
-          <div className="mt-5 flex-1 rounded-xl bg-surface p-4 flex items-end gap-2">
-            {[40, 65, 50, 80, 55, 90, 70, 95, 60, 88].map((h, i) => <div key={i} className="flex-1 rounded-t-md gradient-brand" style={{ height: `${h}%`, opacity: 0.4 + i * 0.06 }} />)}
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <div className="rounded-xl border border-hairline p-3 flex items-center gap-2">
-              <BarChart3 className="h-4 w-4 text-brand" />
-              <span className="text-xs font-medium text-ink">Analytics</span>
-            </div>
-            <div className="rounded-xl border border-hairline p-3 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-accent2" />
-              <span className="text-xs font-medium text-ink">Automations</span>
-            </div>
+
+          {/* Orbit service nodes */}
+          <div className="absolute left-1/2 top-1/2 animate-orbit-spin" style={{ width: 0, height: 0 }}>
+            {orbit.map((s, i) => (
+              <div
+                key={s.label}
+                className="absolute left-1/2 top-1/2"
+                style={{ transform: `rotate(${i * 90}deg) translateY(-170px)` }}
+              >
+                <div style={{ transform: `rotate(${-i * 90}deg)` }}>
+                  <div className="animate-orbit-counter flex flex-col items-center gap-1.5">
+                    <div className={`h-14 w-14 rounded-2xl bg-white border border-hairline shadow-soft flex items-center justify-center ${s.tone === "brand" ? "text-brand" : "text-accent2"}`}>
+                      <s.icon className="h-6 w-6" />
+                    </div>
+                    <span className="text-[11px] font-semibold text-ink bg-white/80 backdrop-blur px-2 py-0.5 rounded-full">{s.label}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {
-    /* Floating cards */
-  }
-      <div className="absolute -left-8 top-20 rounded-2xl bg-white border border-hairline shadow-glow p-4 w-56 animate-float">
+      {/* Floating tags */}
+      <div className="absolute -left-6 top-16 rounded-2xl bg-white border border-hairline shadow-glow p-4 w-56 animate-float">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-accent2-soft text-accent2 flex items-center justify-center">
-            <Megaphone className="h-5 w-5" />
+            <HeartHandshake className="h-5 w-5" />
           </div>
           <div>
-            <div className="text-xs text-ink-muted">Campaign live</div>
-            <div className="text-sm font-semibold text-ink">+38% CTR</div>
+            <div className="text-xs text-ink-muted">Built for</div>
+            <div className="text-sm font-semibold text-ink">Small businesses</div>
           </div>
         </div>
       </div>
-      <div className="absolute -right-6 bottom-12 rounded-2xl bg-white border border-hairline shadow-glow p-4 w-56" style={{ animation: "float 6s ease-in-out infinite", animationDelay: "1.5s" }}>
+      <div className="absolute -right-4 bottom-16 rounded-2xl bg-white border border-hairline shadow-glow p-4 w-56" style={{ animation: "float 6s ease-in-out infinite", animationDelay: "1.5s" }}>
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-lg bg-brand-soft text-brand flex items-center justify-center">
-            <Code2 className="h-5 w-5" />
+            <GraduationCap className="h-5 w-5" />
           </div>
           <div>
-            <div className="text-xs text-ink-muted">Deployed</div>
-            <div className="text-sm font-semibold text-ink">v2.4 · success</div>
+            <div className="text-xs text-ink-muted">Launchpad</div>
+            <div className="text-sm font-semibold text-ink">Internships open</div>
           </div>
         </div>
       </div>

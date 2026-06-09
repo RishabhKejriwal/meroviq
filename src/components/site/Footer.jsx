@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Mail, Phone } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 const COLS = [
   {
     title: "Company",
@@ -39,7 +39,7 @@ const COLS = [
 function Footer() {
   return <footer className="mt-24 border-t border-hairline bg-surface">
       <div className="container-page py-16">
-        <div className="grid gap-12 lg:grid-cols-6">
+        <div className="grid gap-8 lg:grid-cols-7">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2">
               <img src="/images/logo.png" alt="Meroviq Technologies" className="h-[70px] w-auto" />
@@ -48,13 +48,10 @@ function Footer() {
               Transforming ideas into scalable digital solutions for small businesses, entrepreneurs and the next generation of IT talent.
             </p>
             <div className="mt-6 space-y-2 text-sm">
-              <a href="mailto:hello@meroviq.com" className="flex items-center gap-2 text-ink-muted hover:text-brand">
-                <Mail className="h-4 w-4" /> hello@meroviq.com
+              <a href="mailto:hello@meroviq.in" className="flex items-center gap-2 text-ink-muted hover:text-brand">
+                <Mail className="h-4 w-4" /> hello@meroviq.in
               </a>
-              <a href="tel:+910000000000" className="flex items-center gap-2 text-ink-muted hover:text-brand">
-                <Phone className="h-4 w-4" /> +91 00000 00000
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-ink-muted hover:text-brand">
+              <a href="https://www.linkedin.com/company/meroviq-technologies" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-ink-muted hover:text-brand">
                 <Linkedin className="h-4 w-4" /> LinkedIn
               </a>
             </div>

@@ -22,12 +22,12 @@ const NAV_GROUPS = [
     label: "Resources",
     items: [
       { to: "/tools", label: "Tools" },
-      { to: "/resources", label: "Resources" },
-      { to: "/contact", label: "Contact" }
+      { to: "/resources", label: "Resources" }
     ]
   }
 ];
 const NAV_LINKS = [{ to: "/", label: "Home" }];
+const NAV_TAIL = [{ to: "/contact", label: "Contact" }];
 function Header() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -98,6 +98,21 @@ function Header() {
               </div>
             </div>
           ))}
+          {NAV_TAIL.map((n) => (
+            <Link
+              key={n.to}
+              to={n.to}
+              className={cn(
+                "px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                location.pathname === n.to
+                  ? "text-brand bg-brand-soft"
+                  : "text-ink/80 hover:text-brand hover:bg-brand-soft"
+              )}
+              aria-current={location.pathname === n.to ? "page" : undefined}
+            >
+              {n.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
@@ -156,6 +171,22 @@ function Header() {
                   ))}
                 </div>
               </div>
+            ))}
+            {NAV_TAIL.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "px-3 py-2 rounded-md font-medium",
+                  location.pathname === n.to
+                    ? "text-brand bg-brand-soft"
+                    : "text-ink/90 hover:bg-brand-soft hover:text-brand"
+                )}
+                aria-current={location.pathname === n.to ? "page" : undefined}
+              >
+                {n.label}
+              </Link>
             ))}
             <div className="flex gap-2 pt-3">
               <Button asChild className="flex-1 gradient-brand text-white">

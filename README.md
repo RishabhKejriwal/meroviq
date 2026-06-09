@@ -48,7 +48,6 @@ meroviq/
 | `/tools` | Free Tools Hub |
 | `/tools/digital-signature` | Digital Signature Tool |
 | `/tools/file-converter` | File Converter |
-| `/tools/grammar-corrector` | Grammar Corrector |
 | `/tools/qa-estimator` | QA Estimator |
 | `/resources` | Resources & FAQs |
 | `/resources/it-professionals-faq` | IT Professionals FAQ |
@@ -106,7 +105,7 @@ bun run preview
 - **Organized Navigation** — Desktop dropdown menus + mobile grouped menu
 - **Accessibility** — Skip links, semantic HTML, ARIA labels
 - **SEO Ready** — Meta tags, Open Graph, JSON-LD schema
-- **Interactive Tools** — Digital signature, file converter, grammar corrector, QA estimator
+- **Interactive Tools** — Digital signature, file converter, QA estimator
 - **Smooth Interactions** — Scroll-based header transparency, hover states
 
 ## License

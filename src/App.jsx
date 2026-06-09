@@ -19,7 +19,6 @@ import ServicesMkt from "./routes/services.marketing.jsx";
 import Tools from "./routes/tools.jsx";
 import ToolsSig from "./routes/tools.digital-signature.jsx";
 import ToolsFile from "./routes/tools.file-converter.jsx";
-import ToolsGrammar from "./routes/tools.grammar-corrector.jsx";
 import ToolsQa from "./routes/tools.qa-estimator.jsx";
 
 function ScrollToTop() {
@@ -82,7 +81,6 @@ export default function App() {
           <Route path="/tools" element={<Tools />} />
           <Route path="/tools/digital-signature" element={<ToolsSig />} />
           <Route path="/tools/file-converter" element={<ToolsFile />} />
-          <Route path="/tools/grammar-corrector" element={<ToolsGrammar />} />
           <Route path="/tools/qa-estimator" element={<ToolsQa />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

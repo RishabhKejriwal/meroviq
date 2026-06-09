@@ -81,7 +81,6 @@ src/
 
 ### Tool Pages
 - `/tools/digital-signature` - Canvas-based signature drawing
-- `/tools/grammar-corrector` - Rule-based grammar checker
 - `/tools/file-converter` - Image format converter (PNG/JPG/WebP)
 - `/tools/qa-estimator` - QA effort calculator with heuristics
 
@@ -132,7 +131,6 @@ src/
 
 ## Tools Implementation
 - **Digital Signature**: HTML5 Canvas, pointer events, transparent PNG export
-- **Grammar Corrector**: Regex-based rules, client-side processing
 - **File Converter**: Canvas API, format conversion, drag-and-drop
 - **QA Estimator**: Heuristic calculation, range sliders, real-time updates
 

@@ -4,6 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Screen reader only utility */
 .sr-only {
   position: absolute;
@@ -15,6 +19,30 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Prose-like article styling */
+.prose-like {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink-muted);
+}
+.prose-like h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.prose-like p {
+  margin-bottom: 0;
+}
+.prose-like > div {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.prose-like > div:last-child {
+  border-bottom: none;
 }
 
 /* Reduced motion support */
@@ -132,6 +160,25 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Orbit rotation */
+@keyframes orbit-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbit-counter {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+.animate-orbit-spin {
+  animation: orbit-spin 20s linear infinite;
+}
+
+.animate-orbit-counter {
+  animation: orbit-counter 20s linear infinite;
 }
 
 /* Pulse glow animation */

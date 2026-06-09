@@ -1,4 +1,5 @@
 import { Guide } from "@/components/site/Guide";
+import { sections } from "@/data/salesforce-career-faq";
 import { useEffect as __useEffect } from "react";
 function __PageMeta() {
   __useEffect(() => {
@@ -16,14 +17,12 @@ function __PageMeta() {
 function Page() {
   return <Guide
     title={<>Salesforce Career FAQ Guide</>}
-    subtitle="From Trailhead to Architect — the path that actually works."
-    sections={[
-      { id: "intro", title: "Is Salesforce a good career?", body: <p>Yes — the ecosystem keeps expanding and roles span business, admin, and engineering.</p> },
-      { id: "start", title: "How do I get started?", body: <p>Complete the Admin trail on Trailhead, sit the Admin exam, then ship a small AppExchange-style project.</p> },
-      { id: "certs", title: "Which certifications matter?", body: <p>Admin → Platform App Builder → Platform Developer I. Specialize from there based on your role.</p> },
-      { id: "roles", title: "Common roles", body: <p>Admin, Consultant, Developer, Architect, Marketing Cloud Specialist.</p> },
-      { id: "salary", title: "Salary expectations", body: <p>Highly market-dependent; specialization (CPQ, Marketing Cloud, Architect) commands a premium.</p> }
-    ]}
+    subtitle="Skills, certifications, job preparation, Trailhead, salaries, future roadmap, and career growth — in one place."
+    intro={<>
+      <p>Salesforce continues to be one of the fastest-growing cloud ecosystems in the world, creating millions of job opportunities across Admin, Developer, Business Analyst, QA, and Architect roles. Whether you're a fresher or an experienced professional planning a career transition, Meroviq Technologies brings you the most comprehensive and up-to-date Salesforce Career FAQ resource.</p>
+      <p className="mt-3">This guide answers everything — skills, certifications, job preparation, Trailhead, salaries, future roadmap, and career growth — in one place.</p>
+    </>}
+    sections={sections}
   />;
 }
 const __Default = () => <><__PageMeta /><Page /></>;
