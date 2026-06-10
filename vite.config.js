@@ -10,9 +10,24 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
+
   server: {
     host: "::",
     port: 3001,
     strictPort: true,
+    allowedHosts: [
+      "meroviq.in",
+      "www.meroviq.in",
+    ],
+  },
+
+  preview: {
+    host: "::",
+    port: 3001,
+    strictPort: true,
+    allowedHosts: [
+      "meroviq.in",
+      "www.meroviq.in",
+    ],
   },
 });
