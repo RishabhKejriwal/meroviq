@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, BarChart3, Code2, GraduationCap, LayoutDashboard, Megaphone, Sparkles, Shield, Clock, HeartHandshake, Users, FileSignature, FileCog, Calculator, Leaf, Mail, Linkedin, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section, EyebrowHeading } from "@/components/site/Section";
-import { ContactForm } from "@/components/site/ContactForm";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { AnimatedBackground, GradientOrbs } from "@/components/site/AnimatedBackground";
 import { cn } from "@/lib/utils";
@@ -232,26 +231,40 @@ function HomePage() {
     /* CONTACT */
   }
       <Section id="contact" className="bg-surface">
-        <div className="grid lg:grid-cols-2 gap-10">
-          <div>
-            <EyebrowHeading
-    align="left"
+        <EyebrowHeading
     eyebrow="Contact"
     title="Let's build something together"
     subtitle="Tell us about your project, your team or the problem you're trying to solve. We respond within one business day."
   />
-            <div className="space-y-3">
-              <a href="mailto:hello@meroviq.in" className="flex items-center gap-3 text-ink hover:text-brand">
-                <span className="h-10 w-10 rounded-lg bg-brand-soft text-brand flex items-center justify-center"><Mail className="h-5 w-5" /></span>
-                hello@meroviq.in
-              </a>
-              <a href="https://www.linkedin.com/company/meroviq-technologies" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-ink hover:text-brand">
-                <span className="h-10 w-10 rounded-lg bg-brand-soft text-brand flex items-center justify-center"><Linkedin className="h-5 w-5" /></span>
-                LinkedIn
-              </a>
+        <div className="mx-auto max-w-3xl grid gap-5 sm:grid-cols-2">
+          <a
+            href="mailto:hello@meroviq.in"
+            className="group flex items-center gap-4 p-6 rounded-3xl border border-hairline bg-white shadow-soft hover:border-brand/40 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <span className="h-12 w-12 shrink-0 rounded-xl gradient-brand text-white flex items-center justify-center shadow-soft">
+              <Mail className="h-5 w-5" />
+            </span>
+            <div className="min-w-0">
+              <div className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Email us</div>
+              <div className="truncate font-semibold text-ink">hello@meroviq.in</div>
             </div>
-          </div>
-          <ContactForm />
+            <ArrowRight className="ml-auto h-4 w-4 text-brand transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/meroviq-technologies"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center gap-4 p-6 rounded-3xl border border-hairline bg-white shadow-soft hover:border-brand/40 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <span className="h-12 w-12 shrink-0 rounded-xl bg-brand-soft text-brand flex items-center justify-center">
+              <Linkedin className="h-5 w-5" />
+            </span>
+            <div className="min-w-0">
+              <div className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Connect</div>
+              <div className="truncate font-semibold text-ink">LinkedIn</div>
+            </div>
+            <ArrowRight className="ml-auto h-4 w-4 text-brand transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
       </Section>
     </>;

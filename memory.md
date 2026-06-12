@@ -26,7 +26,7 @@
 ```
 src/
 ├── components/
-│   ├── site/          # Custom site components (Header, Footer, ContactForm, etc.)
+│   ├── site/          # Custom site components (Header, Footer, etc.)
 │   └── ui/            # shadcn/ui components (45 components)
 ├── lib/
 │   ├── error-capture.js # Error handling utility
@@ -96,7 +96,6 @@ src/
 ### Site Components
 - **Header**: Fixed navigation with scroll effect, mobile menu, active route highlighting
 - **Footer**: Multi-column links, contact info, social links
-- **ContactForm**: Form with validation, mock submission (API-ready)
 - **PageHero**: Reusable hero section with badge, title, subtitle, CTA
 - **Section**: Container with consistent padding
 - **EyebrowHeading**: Section header with eyebrow label, title, subtitle
