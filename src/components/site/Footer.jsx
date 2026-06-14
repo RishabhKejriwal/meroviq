@@ -37,7 +37,7 @@ const COLS = [
   }
 ];
 function Footer() {
-  return <footer className="mt-24 border-t border-hairline bg-surface">
+  return <footer className="border-t border-hairline bg-surface">
       <div className="container-page py-16">
         <div className="grid gap-8 lg:grid-cols-7">
           <div className="lg:col-span-2">
