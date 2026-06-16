@@ -7,8 +7,8 @@ import { PageHero } from "@/components/site/PageHero";
 import { Section, EyebrowHeading } from "@/components/site/Section";
 import { useEffect as __useEffect } from "react";
 
-import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
+import PdfjsWorker from "pdfjs-dist/build/pdf.worker.min.mjs?worker";
+pdfjsLib.GlobalWorkerOptions.workerPort = new PdfjsWorker();
 
 function __PageMeta() {
   __useEffect(() => {
