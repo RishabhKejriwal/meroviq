@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, Navigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Header } from "@/components/site/Header.jsx";
 import { Footer } from "@/components/site/Footer.jsx";
@@ -66,18 +66,23 @@ export default function App() {
       <main id="main" tabIndex={-1}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<Contact />} />
           <Route path="/impact" element={<Impact />} />
           <Route path="/launchpad" element={<Launchpad />} />
           <Route path="/meroviq-360" element={<Meroviq360 />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/it-professionals-faq" element={<ResourcesIt />} />
           <Route path="/resources/qa-tester-faq" element={<ResourcesQa />} />
           <Route path="/resources/salesforce-career-faq" element={<ResourcesSf />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/services/development" element={<ServicesDev />} />
-          <Route path="/services/marketing" element={<ServicesMkt />} />
+          <Route path="/services/development-and-testing" element={<ServicesDev />} />
+          <Route path="/services/digital-marketing" element={<ServicesMkt />} />
+          {/* Redirects from old URLs */}
+          <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
+          <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
+          <Route path="/services/development" element={<Navigate to="/services/development-and-testing" replace />} />
+          <Route path="/services/marketing" element={<Navigate to="/services/digital-marketing" replace />} />
           <Route path="/tools" element={<Tools />} />
           <Route path="/tools/digital-signature" element={<ToolsSig />} />
           <Route path="/tools/file-converter" element={<ToolsFile />} />

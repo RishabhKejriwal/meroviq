@@ -93,9 +93,14 @@ function Page() {
   const [active, setActive] = useState(SECTIONS[0].id);
   useEffect(() => {
     const onScroll = () => {
+      let current = SECTIONS[0].id;
       for (const s of SECTIONS) {
         const el = document.getElementById(s.id);
-        if (el && el.getBoundingClientRect().top < 140) setActive(s.id);
+        if (el && el.getBoundingClientRect().top < 140) current = s.id;
+      }
+      setActive(current);
+      if (window.location.hash !== `#${current}`) {
+        window.history.replaceState(null, "", `#${current}`);
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });

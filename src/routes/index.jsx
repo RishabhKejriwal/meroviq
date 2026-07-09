@@ -21,8 +21,8 @@ function __PageMeta() {
 }
 const SERVICES = [
   { to: "/meroviq-360", title: "Meroviq 360", desc: "All-in-one CRM platform to manage, automate and grow your business.", cta: "Explore Product", icon: LayoutDashboard },
-  { to: "/services/development", title: "Development & Testing", desc: "Website development, SaaS customization, custom software and QA testing.", cta: "Explore Services", icon: Code2 },
-  { to: "/services/marketing", title: "Digital Marketing", desc: "SEO, social media, YouTube and performance marketing.", cta: "Explore Services", icon: Megaphone },
+  { to: "/services/development-and-testing", title: "Development & Testing", desc: "Website development, SaaS customization, custom software and QA testing.", cta: "Explore Services", icon: Code2 },
+  { to: "/services/digital-marketing", title: "Digital Marketing", desc: "SEO, social media, YouTube and performance marketing.", cta: "Explore Services", icon: Megaphone },
   { to: "/launchpad", title: "Meroviq Launchpad", desc: "Internship program designed to provide real-world IT experience.", cta: "Explore Program", icon: GraduationCap }
 ];
 const WHY = [
@@ -62,7 +62,7 @@ function HomePage() {
                 <Link to="/meroviq-360">Try For Free <ArrowRight /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-brand/20 hover:bg-brand-soft hover:text-brand glass-card">
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact-us">Contact Us</Link>
               </Button>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-muted">
@@ -89,14 +89,14 @@ function HomePage() {
     key={s.to}
     ref={ref}
     to={s.to}
-    className={`group relative rounded-2xl border border-hairline bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-glow hover:border-brand/30 animate-on-scroll ${isVisible ? 'visible scale-in' : ''} delay-${index * 100}`}
+    className={`group relative flex flex-col rounded-2xl border border-hairline bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-glow hover:border-brand/30 animate-on-scroll ${isVisible ? 'visible scale-in' : ''} delay-${index * 100}`}
   >
               <div className="h-12 w-12 rounded-xl gradient-brand text-white flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform duration-300">
                 <s.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-ink group-hover:text-brand transition-colors">{s.title}</h3>
               <p className="mt-2 text-sm text-ink-muted leading-relaxed">{s.desc}</p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand group-hover:gap-3 transition-all">
+              <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand group-hover:gap-3 transition-all">
                 {s.cta} <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>;

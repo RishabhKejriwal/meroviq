@@ -45,7 +45,7 @@ function ToolPage({ eyebrow, title, subtitle, toolInterface, features, steps, be
         </div>
         <div className="mt-12 text-center">
           <Button asChild size="lg" className="gradient-brand text-white">
-            <Link to="/contact">Talk to our team <ArrowRight /></Link>
+            <Link to="/contact-us">Talk to our team <ArrowRight /></Link>
           </Button>
         </div>
       </Section>

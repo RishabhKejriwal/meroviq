@@ -18,8 +18,8 @@ function __PageMeta() {
   return null;
 }
 const CATS = [
-  { to: "/services/development", title: "Development & Testing", desc: "Web, SaaS customization, custom software and QA across the stack.", icon: Code2 },
-  { to: "/services/marketing", title: "Digital Marketing", desc: "SEO, social, YouTube, performance marketing and analytics.", icon: Megaphone }
+  { to: "/services/development-and-testing", title: "Development & Testing", desc: "Web, SaaS customization, custom software and QA across the stack.", icon: Code2 },
+  { to: "/services/digital-marketing", title: "Digital Marketing", desc: "SEO, social, YouTube, performance marketing and analytics.", icon: Megaphone }
 ];
 function Page() {
   return <>
@@ -38,9 +38,9 @@ function Page() {
               <span className="mt-5 inline-flex items-center gap-2 text-brand font-semibold group-hover:gap-3 transition-all">Explore <ArrowRight className="h-4 w-4" /></span>
             </Link>)}
         </div>
-        <div className="mt-12 text-center">
+        <div className="relative mt-12 text-center">
           <Button asChild size="lg" className="gradient-brand text-white">
-            <Link to="/contact">Get Started Today <ArrowRight /></Link>
+            <Link to="/contact-us">Get Started Today <ArrowRight /></Link>
           </Button>
         </div>
       </Section>

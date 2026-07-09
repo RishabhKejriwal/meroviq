@@ -8,17 +8,23 @@ function Guide({ title, subtitle, intro, sections }) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    const update = (updateHash) => {
       const h = document.documentElement;
       const p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
       setProgress(Math.min(100, Math.max(0, p)));
+      let current = sections[0]?.id;
       for (const s of sections) {
         const el = document.getElementById(s.id);
-        if (el && el.getBoundingClientRect().top < 120) setActive(s.id);
+        if (el && el.getBoundingClientRect().top < 120) current = s.id;
+      }
+      setActive(current);
+      if (updateHash && current && window.location.hash !== `#${current}`) {
+        window.history.replaceState(null, "", `#${current}`);
       }
     };
+    const onScroll = () => update(true);
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    update(false);
     return () => window.removeEventListener("scroll", onScroll);
   }, [sections]);
 

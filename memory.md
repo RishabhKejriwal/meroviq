@@ -70,14 +70,14 @@ src/
 - `/` - Homepage with hero, services, why meroviq, tools, impact, about, contact
 - `/meroviq-360` - CRM product landing page (coming soon)
 - `/services` - Services overview
-- `/services/development` - Development & Testing services
-- `/services/marketing` - Digital Marketing services
+- `/services/development-and-testing` - Development & Testing services (old `/services/development` redirects)
+- `/services/digital-marketing` - Digital Marketing services (old `/services/marketing` redirects)
 - `/launchpad` - Internship program landing page
 - `/impact` - Community initiatives page
 - `/tools` - Free tools overview
 - `/resources` - Guides & FAQs with search/filter
-- `/contact` - Contact page with form
-- `/privacy` - Privacy policy with sticky TOC
+- `/contact-us` - Contact page (old `/contact` redirects)
+- `/privacy-policy` - Privacy policy with sticky TOC (old `/privacy` redirects)
 
 ### Tool Pages
 - `/tools/digital-signature` - Canvas-based signature drawing

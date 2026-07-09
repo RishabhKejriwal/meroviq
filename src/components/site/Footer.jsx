@@ -5,35 +5,34 @@ const COLS = [
     title: "Company",
     links: [
       { to: "/", label: "Home" },
-      { to: "/impact", label: "Impact" },
-      { to: "/contact", label: "Contact" }
+      { to: "/contact-us", label: "Contact Us" }
     ]
   },
   {
     title: "Services",
     links: [
-      { to: "/services/development", label: "Development & Testing" },
-      { to: "/services/marketing", label: "Digital Marketing" },
-      { to: "/meroviq-360", label: "Meroviq 360 CRM" }
+      { to: "/services/development-and-testing", label: "Development & Testing" },
+      { to: "/services/digital-marketing", label: "Digital Marketing" },
+      { to: "/meroviq-360", label: "Meroviq 360" }
     ]
   },
   {
     title: "Programs",
     links: [
-      { to: "/launchpad", label: "Launchpad Internships" },
-      { to: "/impact", label: "Community Initiatives" }
+      { to: "/launchpad", label: "Launchpad" },
+      { to: "/impact", label: "Impact" }
     ]
   },
   {
     title: "Resources",
     links: [
-      { to: "/tools", label: "Free Tools" },
-      { to: "/resources", label: "Guides & FAQs" }
+      { to: "/tools", label: "Tools" },
+      { to: "/resources", label: "Resources" }
     ]
   },
   {
     title: "Legal",
-    links: [{ to: "/privacy", label: "Privacy Policy" }]
+    links: [{ to: "/privacy-policy", label: "Privacy Policy" }]
   }
 ];
 function Footer() {
@@ -42,7 +41,7 @@ function Footer() {
         <div className="grid gap-8 lg:grid-cols-7">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2">
-              <img src="/images/logo.png" alt="Meroviq Technologies" className="h-[70px] w-auto" />
+              <img src="/images/logo.png" alt="Meroviq Technologies" className="h-12 md:h-[70px] w-auto" />
             </Link>
             <p className="mt-4 text-sm text-ink-muted max-w-sm">
               Transforming ideas into scalable digital solutions for small businesses, entrepreneurs and the next generation of IT talent.

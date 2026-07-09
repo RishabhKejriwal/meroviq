@@ -27,7 +27,7 @@ const NAV_GROUPS = [
   }
 ];
 const NAV_LINKS = [{ to: "/", label: "Home" }];
-const NAV_TAIL = [{ to: "/contact", label: "Contact" }];
+const NAV_TAIL = [{ to: "/contact-us", label: "Contact Us" }];
 function Header() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -46,7 +46,7 @@ function Header() {
   >
       <div className="container-page flex h-20 md:h-24 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 group" aria-label="Meroviq Technologies home">
-          <img src="/images/logo.png" alt="Meroviq Technologies" className="h-[70px] w-auto" />
+          <img src="/images/logo.png" alt="Meroviq Technologies" className="h-12 md:h-[70px] w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">

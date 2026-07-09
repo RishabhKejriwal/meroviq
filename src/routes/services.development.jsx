@@ -43,7 +43,7 @@ function Page() {
     title={<>Build Smart. Scale Fast. <span className="text-gradient-brand">Deliver with Confidence.</span></>}
     subtitle="At Meroviq Technologies, we provide end-to-end development and testing services designed to help businesses build reliable, scalable, and efficient digital solutions. From websites to enterprise software, we focus on performance, quality, and long-term growth."
   >
-        <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact">Get Started Today <ArrowRight /></Link></Button>
+        <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact-us">Get Started Today <ArrowRight /></Link></Button>
       </PageHero>
 
       <Section className="relative bg-dots">
@@ -87,9 +87,8 @@ function Page() {
         <div className="max-w-2xl mx-auto rounded-3xl border border-hairline bg-white/95 backdrop-blur-sm p-8 md:p-10 shadow-soft relative text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-ink">Let's Build Something Great</h2>
           <p className="mt-3 text-ink-muted">Whether you're starting from scratch or improving an existing system, we're here to help you build efficient, reliable, and scalable solutions.</p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact">Get Started Today <ArrowRight /></Link></Button>
-            <Button asChild size="lg" variant="outline"><Link to="/contact">Contact Us</Link></Button>
+          <div className="mt-6 flex justify-center">
+            <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact-us">Get Started Today <ArrowRight /></Link></Button>
           </div>
         </div>
       </Section>

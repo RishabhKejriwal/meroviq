@@ -79,7 +79,7 @@ function Page() {
     title={<>Learn. Build. <span className="text-gradient-brand">Launch Your Career.</span></>}
     subtitle="Meroviq Launchpad is designed to help IT freshers gain real-world experience, develop industry-relevant skills, and confidently step into professional roles. We combine practical training, live project exposure, and career guidance to prepare you for real opportunities."
   >
-        <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact">Apply Now <ArrowRight /></Link></Button>
+        <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact-us">Apply Now <ArrowRight /></Link></Button>
       </PageHero>
 
       {/* Tracks */}
@@ -169,8 +169,8 @@ function Page() {
           <h2 className="text-2xl md:text-3xl font-bold text-ink">Start Your Career Journey</h2>
           <p className="mt-3 text-ink-muted">Take the first step towards a successful IT career with Meroviq Launchpad.</p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact">Apply Now <ArrowRight /></Link></Button>
-            <Button asChild size="lg" variant="outline"><Link to="/contact">Contact Us</Link></Button>
+            <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact-us">Apply Now <ArrowRight /></Link></Button>
+            <Button asChild size="lg" variant="outline"><Link to="/contact-us">Contact Us</Link></Button>
           </div>
         </div>
       </Section>

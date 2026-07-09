@@ -4,7 +4,7 @@ import { Section } from "@/components/site/Section";
 import { useEffect as __useEffect } from "react";
 function __PageMeta() {
   __useEffect(() => {
-    document.title = "Contact Meroviq Technologies";
+    document.title = "Contact Us — Meroviq Technologies";
     let m = document.querySelector('meta[name="description"]');
     if (!m) {
       m = document.createElement("meta");
@@ -17,7 +17,7 @@ function __PageMeta() {
 }
 function Page() {
   return <>
-      <PageHero eyebrow="Contact" title={<>Let's build something <span className="text-gradient-brand">together</span></>} subtitle="We respond within one business day. Tell us a bit about your goals and we'll take it from there." />
+      <PageHero eyebrow="Contact Us" title={<>Let's build something <span className="text-gradient-brand">together</span></>} subtitle="We respond within one business day. Tell us a bit about your goals and we'll take it from there." />
       <Section className="relative bg-circuit">
         <div aria-hidden className="absolute inset-0 bg-gradient-radial opacity-40" />
         <div className="relative mx-auto max-w-4xl">

@@ -44,7 +44,7 @@ function Page() {
     title={<>Grow Faster. Reach Smarter. <span className="text-gradient-brand">Convert Better.</span></>}
     subtitle="At Meroviq Technologies, we help businesses grow their online presence, attract the right audience, and convert leads into customers through data-driven digital marketing strategies. Our focus is on delivering measurable results that drive sustainable business growth."
   >
-        <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact">Grow Your Business <ArrowRight /></Link></Button>
+        <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact-us">Grow Your Business <ArrowRight /></Link></Button>
       </PageHero>
 
       <Section className="relative bg-dots">
@@ -89,8 +89,8 @@ function Page() {
           <h2 className="text-2xl md:text-3xl font-bold text-ink">Let's Grow Your Business</h2>
           <p className="mt-3 text-ink-muted">Whether you want to increase traffic, generate leads, or build your brand, we're here to help you achieve your marketing goals.</p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact">Get Started Today <ArrowRight /></Link></Button>
-            <Button asChild size="lg" variant="outline"><Link to="/contact">Contact Us</Link></Button>
+            <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact-us">Get Started Today <ArrowRight /></Link></Button>
+            <Button asChild size="lg" variant="outline"><Link to="/contact-us">Contact Us</Link></Button>
           </div>
         </div>
       </Section>

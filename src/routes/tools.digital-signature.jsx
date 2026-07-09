@@ -38,6 +38,12 @@ function formatDate(date, fmt) {
   }
 }
 
+const measureCtx = document.createElement("canvas").getContext("2d");
+function measureTextWidth(text, fontSize, fontFamily) {
+  measureCtx.font = `${fontSize}px ${fontFamily}`;
+  return Math.ceil(measureCtx.measureText(text).width);
+}
+
 function Page() {
   const [pdfBytes, setPdfBytes] = useState(null);
   return <>
@@ -185,6 +191,8 @@ function Editor({ pdfBytes, onReset }) {
   const [dragEnabled, setDragEnabled] = useState(true);
   const [draggingId, setDraggingId] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [resizingId, setResizingId] = useState(null);
+  const [resizeStart, setResizeStart] = useState(null);
   const [overlaySize, setOverlaySize] = useState({ w: 0, h: 0 });
   const [viewportDim, setViewportDim] = useState({ w: 0, h: 0 });
 
@@ -198,6 +206,7 @@ function Editor({ pdfBytes, onReset }) {
 
   const canvasRef = useRef(null);
   const overlayRef = useRef(null);
+  const suppressClickRef = useRef(false);
   const sigCanvasRef = useRef(null);
   const sigPadRef = useRef(null);
   const typedInputRef = useRef(null);
@@ -268,7 +277,12 @@ function Editor({ pdfBytes, onReset }) {
       const y = Math.max(0, Math.min(clientY - r.top - dragOffset.y, overlay.offsetHeight - 10));
       setFields(prev => prev.map(f => f.id === draggingId ? { ...f, x, y } : f));
     };
-    const onUp = () => setDraggingId(null);
+    const onUp = () => {
+      setDraggingId(null);
+      // the release can land on the overlay and fire a click that would add a new field
+      suppressClickRef.current = true;
+      setTimeout(() => { suppressClickRef.current = false; }, 0);
+    };
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseup", onUp);
     window.addEventListener("touchmove", onMove, { passive: false });
@@ -292,6 +306,50 @@ function Editor({ pdfBytes, onReset }) {
     setDraggingId(id);
   };
 
+  useEffect(() => {
+    if (!resizingId || !resizeStart) return;
+    const onMove = (e) => {
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const newWidth = Math.max(40, resizeStart.width + (clientX - resizeStart.x));
+      const scale = newWidth / resizeStart.width;
+      setFields(prev => prev.map(f => {
+        if (f.id !== resizingId) return f;
+        if (f.type === "signature") {
+          return { ...f, width: newWidth, height: Math.max(16, Math.round(resizeStart.height * scale)) };
+        }
+        if (f.type === "text") {
+          const fontSize = Math.min(72, Math.max(8, Math.round(resizeStart.fontSize * scale)));
+          return { ...f, fontSize, width: measureTextWidth(f.text, fontSize, f.fontFamily) + 8, height: fontSize + 10 };
+        }
+        return f;
+      }));
+    };
+    const onUp = () => {
+      setResizingId(null);
+      // when growing, the release lands outside the field and fires a click on the overlay
+      suppressClickRef.current = true;
+      setTimeout(() => { suppressClickRef.current = false; }, 0);
+    };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    window.addEventListener("touchmove", onMove, { passive: false });
+    window.addEventListener("touchend", onUp);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+      window.removeEventListener("touchmove", onMove);
+      window.removeEventListener("touchend", onUp);
+    };
+  }, [resizingId, resizeStart]);
+
+  const startResize = (e, f) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const cx = e.touches ? e.touches[0].clientX : e.clientX;
+    setResizeStart({ x: cx, width: f.width, height: f.height, fontSize: f.fontSize });
+    setResizingId(f.id);
+  };
+
   const addField = (x, y) => {
     const id = `${Date.now()}-${Math.random()}`;
     const ow = overlayRef.current?.clientWidth || viewportDim.w;
@@ -302,7 +360,7 @@ function Editor({ pdfBytes, onReset }) {
       f = { ...f, data: savedSig, width: 200, height: 80 };
     } else if (fieldType === "text") {
       if (!savedText) { alert("Please save text first"); return; }
-      f = { ...f, text: savedText, fontSize: savedTextSize, fontFamily: savedTextFont, width: 200, height: savedTextSize + 10 };
+      f = { ...f, text: savedText, fontSize: savedTextSize, fontFamily: savedTextFont, width: measureTextWidth(savedText, savedTextSize, savedTextFont) + 8, height: savedTextSize + 10 };
     } else if (fieldType === "date") {
       if (!savedDate) { alert("Please save a date first"); return; }
       f = { ...f, date: savedDate, fontSize: 14, fontFamily: "Arial", width: 130, height: 24 };
@@ -315,6 +373,7 @@ function Editor({ pdfBytes, onReset }) {
   };
 
   const onOverlayClick = (e) => {
+    if (suppressClickRef.current) { suppressClickRef.current = false; return; }
     if (e.target.closest("[data-field]")) return;
     const r = overlayRef.current.getBoundingClientRect();
     addField(e.clientX - r.left, e.clientY - r.top);
@@ -424,6 +483,14 @@ function Editor({ pdfBytes, onReset }) {
                 </div>
                 <button onClick={(e) => { e.stopPropagation(); removeField(f.id); }}
                   className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 text-white text-xs hidden group-hover:flex items-center justify-center">&times;</button>
+                {(f.type === "signature" || f.type === "text") && (
+                  <div
+                    onMouseDown={(e) => startResize(e, f)}
+                    onTouchStart={(e) => startResize(e, f)}
+                    className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 rounded-full bg-brand border-2 border-white shadow cursor-nwse-resize hidden group-hover:block"
+                    title="Drag to resize"
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -554,6 +621,7 @@ function Editor({ pdfBytes, onReset }) {
           <li>Configure your field and click Save</li>
           <li>Click anywhere on the document to place your field</li>
           <li>Drag the field to position it exactly where you want</li>
+          <li>Drag the corner handle to resize signatures and text</li>
           <li>Add multiple fields if needed</li>
         </ol>
         <label className="flex items-center gap-2 mt-3 text-sm text-ink">

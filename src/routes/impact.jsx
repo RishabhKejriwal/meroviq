@@ -22,7 +22,7 @@ import { Section, EyebrowHeading } from "@/components/site/Section";
 import { useEffect as __useEffect } from "react";
 function __PageMeta() {
   __useEffect(() => {
-    document.title = "Meroviq Impact | Sustainability, Well-being & Community Initiatives";
+    document.title = "Community Initiatives | Sustainability & Well-being — Meroviq Technologies";
     let m = document.querySelector('meta[name="description"]');
     if (!m) {
       m = document.createElement("meta");
@@ -82,7 +82,7 @@ function Page() {
     title={<>Driving Change Through <span className="text-gradient-brand">Technology, Sustainability & Human Well-being</span></>}
     subtitle="At Meroviq, we believe true progress is not just about business growth — it's about creating a healthier, cleaner, and more balanced society. Meroviq Impact is our initiative to contribute towards environmental sustainability, personal well-being, and community development."
   >
-        <Button asChild size="lg" className="bg-accent2 text-white hover:bg-accent2/90"><Link to="/contact">Join Our Initiatives <ArrowRight /></Link></Button>
+        <Button asChild size="lg" className="bg-accent2 text-white hover:bg-accent2/90"><Link to="/contact-us">Join Our Initiatives <ArrowRight /></Link></Button>
       </PageHero>
 
       {/* Mission */}
@@ -137,8 +137,8 @@ function Page() {
               <span className="text-ink font-medium">{i}</span>
             </div>)}
         </div>
-        <div className="mt-10 text-center">
-          <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact">Join Our Initiatives <ArrowRight /></Link></Button>
+        <div className="relative mt-10 text-center">
+          <Button asChild size="lg" className="gradient-brand text-white"><Link to="/contact-us">Join Our Initiatives <ArrowRight /></Link></Button>
         </div>
       </Section>
 
